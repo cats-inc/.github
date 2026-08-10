@@ -89,7 +89,7 @@ provider 憑證 —— 它一律請 `cats-runtime` 代勞。這讓 provider 的�
 | 協定 | 狀態 |
 | --- | --- |
 | **MCP** | 已服務。`POST /mcp` 為權威執行點，另發佈 `cats-runtime mcp` stdio proxy 與精選的 mutation 工具。 |
-| **ACP** | 已服務。`POST /acp` 提供受限 facade，另有直接的 stdio carrier 供 IDE 與 client 整合；另有 provider 側 ACP 涵蓋各 CLI provider 家族。 |
+| **ACP** | 已服務。`POST /acp` 提供受限 facade，另有直接的 stdio carrier 供 IDE 與 client 整合；另有 provider 側 ACP 涵蓋其中 13 個 CLI provider 家族。 |
 | **A2A** | 進行中。peer routing hint、peer 診斷、以及受政策控管的 peer 執行路由皆已存在；公開的 agent-card 與 JSON-RPC 介面尚未發佈。 |
 
 ---

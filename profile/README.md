@@ -98,7 +98,7 @@ A single HTTP surface in front of everything that can run an agent turn.
 | Protocol | Status |
 | --- | --- |
 | **MCP** | Served. Authoritative execution on `POST /mcp`, plus a published `cats-runtime mcp` stdio proxy and curated mutation tools. |
-| **ACP** | Served. Bounded facade on `POST /acp` and a direct stdio carrier for IDE and client integration; plus provider-side ACP across the CLI provider families. |
+| **ACP** | Served. Bounded facade on `POST /acp` and a direct stdio carrier for IDE and client integration; plus provider-side ACP across 13 of the CLI provider families. |
 | **A2A** | In progress. Peer routing hints, peer diagnostics, and a policy-gated peer execution route exist; the public agent-card and JSON-RPC surface are not published yet. |
 
 ---
