@@ -26,23 +26,23 @@ npx @cats-inc/cats-one
 ```
         ┌──────────────────────────────────────────────────────┐
         │  cats-one                                            │
-        │  單一指令啟動 —— 先起 runtime，等待 /health，         │
-        │  再啟動平台                                          │
+        │  one-command bootstrap — starts the runtime, waits   │
+        │  on /health, then launches the platform              │
         └───────────────────────┬──────────────────────────────┘
                                 │
              ┌──────────────────┴───────────────────┐
              ▼                                      ▼
    ┌──────────────────────┐   HTTP / SSE   ┌──────────────────────┐
    │  cats-platform       │ ─────────────▶ │  cats-runtime        │
-   │  協作層              │                │  執行邊界            │
+   │  collaboration layer │                │  execution boundary  │
    │  React · Vite ·      │                │  Node · Hono         │
    │  Electron            │                │                      │
    └──────────────────────┘                └──────────┬───────────┘
                                                       │
                         ┌─────────────────────────────┼─────────────────────────┐
                         ▼                             ▼                         ▼
-                   agent CLI                     model API                 本機模型
-                   16 個家族              Claude · Codex · Gemini            Ollama
+                   agent CLIs                    model APIs               local models
+              16 provider families          Claude · Codex · Gemini          Ollama
 ```
 
 兩層之間的邊界是刻意畫出來的。`cats-platform` 從不自己拉起 provider process，也不持有
