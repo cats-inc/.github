@@ -46,7 +46,7 @@ platform on top of it.
                         ┌─────────────────────────────┼─────────────────────────┐
                         ▼                             ▼                         ▼
                    agent CLIs                    model APIs               local models
-              12 provider families          Claude · Codex · Gemini          Ollama
+              16 provider families          Claude · Codex · Gemini          Ollama
 ```
 
 The boundary between the two halves is deliberate. `cats-platform` never spawns a
@@ -75,9 +75,9 @@ A single HTTP surface in front of everything that can run an agent turn.
 - **One session model across very different backends.** Subscription agent CLIs, hosted
   model APIs, and local models all create, stream, cancel, reset, fork, and delete
   through the same lifecycle primitives.
-- **12 CLI provider families** — Claude, Codex, Antigravity, Cursor, Copilot, OpenCode,
-  Kilo, Goose, Pi, Auggie, Junie, Kiro — plus API-backed Claude / Codex / Gemini
-  families and local Ollama.
+- **16 CLI provider families** — Claude, Codex, Antigravity, Cursor, Copilot, OpenCode,
+  Kilo, Goose, Pi, Auggie, Junie, Kiro, Grok, Cline, Devin, and Aider — plus API-backed
+  Claude / Codex / Gemini families and local Ollama.
 - **Workspace isolation** backed by git worktrees, with deterministic
   prepare / recreate / cleanup semantics and explicit discard / merge / preserve
   policies on reset and delete.
@@ -98,7 +98,7 @@ A single HTTP surface in front of everything that can run an agent turn.
 | Protocol | Status |
 | --- | --- |
 | **MCP** | Served. Authoritative execution on `POST /mcp`, plus a published `cats-runtime mcp` stdio proxy and curated mutation tools. |
-| **ACP** | Served. Bounded facade on `POST /acp` and a direct stdio carrier for IDE and client integration; provider-side ACP spans all 12 CLI families. |
+| **ACP** | Served. Bounded facade on `POST /acp` and a direct stdio carrier for IDE and client integration; plus provider-side ACP across the CLI provider families. |
 | **A2A** | In progress. Peer routing hints, peer diagnostics, and a policy-gated peer execution route exist; the public agent-card and JSON-RPC surface are not published yet. |
 
 ---
@@ -142,10 +142,10 @@ A chat-first workspace where agents are named, persistent collaborators.
 
 | | cats-runtime | cats-platform | cats-one |
 | --- | ---: | ---: | ---: |
-| Commits | ~950 | ~4,000 | ~20 |
-| Tracked files | ~690 | ~2,700 | 12 |
-| Test files | 186 | 395 | — |
-| Docs (markdown) | 179 | 413 | 3 |
+| Commits | ~980 | ~4,000 | ~20 |
+| Tracked files | ~730 | ~2,740 | 12 |
+| Test files | 193 | 395 | — |
+| Docs (markdown) | 187 | 417 | 3 |
 
 Both main repositories carry `ROADMAP.md`, `PROGRESS.md`, architecture decision records
 under `docs/decisions/`, and written plans under `docs/plans/`. Design intent is

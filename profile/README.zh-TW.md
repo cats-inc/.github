@@ -42,7 +42,7 @@ npx @cats-inc/cats-one
                         ┌─────────────────────────────┼─────────────────────────┐
                         ▼                             ▼                         ▼
                    agent CLI                     model API                 本機模型
-                   12 個家族              Claude · Codex · Gemini            Ollama
+                   16 個家族              Claude · Codex · Gemini            Ollama
 ```
 
 兩層之間的邊界是刻意畫出來的。`cats-platform` 從不自己拉起 provider process，也不持有
@@ -69,9 +69,9 @@ provider 憑證 —— 它一律請 `cats-runtime` 代勞。這讓 provider 的�
 
 - **同一套 session 模型，跨越差異極大的 backend。** 訂閱制 agent CLI、雲端 model API、
   本機模型，都透過同一組生命週期原語完成建立、串流、取消、重設、分支與刪除。
-- **12 個 CLI provider 家族** —— Claude、Codex、Antigravity、Cursor、Copilot、OpenCode、
-  Kilo、Goose、Pi、Auggie、Junie、Kiro —— 另有 API backend 的 Claude / Codex / Gemini
-  家族與本機 Ollama。
+- **16 個 CLI provider 家族** —— Claude、Codex、Antigravity、Cursor、Copilot、OpenCode、
+  Kilo、Goose、Pi、Auggie、Junie、Kiro、Grok、Cline、Devin、Aider —— 另有 API backend 的
+  Claude / Codex / Gemini 家族與本機 Ollama。
 - **以 git worktree 為底的工作區隔離**，具備確定性的 prepare / recreate / cleanup 語意，
   重設與刪除時可明確選擇 discard / merge / preserve 政策。
 - **串流** 支援 SSE 或 NDJSON，並由 runtime 產出 `content_block` 投影，讓 host 不必知道
@@ -89,7 +89,7 @@ provider 憑證 —— 它一律請 `cats-runtime` 代勞。這讓 provider 的�
 | 協定 | 狀態 |
 | --- | --- |
 | **MCP** | 已服務。`POST /mcp` 為權威執行點，另發佈 `cats-runtime mcp` stdio proxy 與精選的 mutation 工具。 |
-| **ACP** | 已服務。`POST /acp` 提供受限 facade，另有直接的 stdio carrier 供 IDE 與 client 整合；provider 側 ACP 涵蓋全部 12 個 CLI 家族。 |
+| **ACP** | 已服務。`POST /acp` 提供受限 facade，另有直接的 stdio carrier 供 IDE 與 client 整合；另有 provider 側 ACP 涵蓋各 CLI provider 家族。 |
 | **A2A** | 進行中。peer routing hint、peer 診斷、以及受政策控管的 peer 執行路由皆已存在；公開的 agent-card 與 JSON-RPC 介面尚未發佈。 |
 
 ---
@@ -130,10 +130,10 @@ provider 憑證 —— 它一律請 `cats-runtime` 代勞。這讓 provider 的�
 
 | | cats-runtime | cats-platform | cats-one |
 | --- | ---: | ---: | ---: |
-| Commit 數 | ~950 | ~4,000 | ~20 |
-| 追蹤檔案 | ~690 | ~2,700 | 12 |
-| 測試檔 | 186 | 395 | — |
-| 文件（markdown） | 179 | 413 | 3 |
+| Commit 數 | ~980 | ~4,000 | ~20 |
+| 追蹤檔案 | ~730 | ~2,740 | 12 |
+| 測試檔 | 193 | 395 | — |
+| 文件（markdown） | 187 | 417 | 3 |
 
 兩個主 repo 都帶有 `ROADMAP.md`、`PROGRESS.md`、位於 `docs/decisions/` 的架構決策紀錄，
 以及 `docs/plans/` 下的書面計畫。設計意圖與程式碼一起進版控，而不是事後回頭補寫。
