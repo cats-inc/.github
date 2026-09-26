@@ -1,0 +1,49 @@
+name: Add issue to Cats Development
+
+# Reusable workflow. Each Cats repository calls it on `issues: opened`, so the
+# logic lives here once. It adds the new issue to the organization Project
+# "Cats Development" and sets its Status to Backlog.
+#
+# The built-in GITHUB_TOKEN cannot write organization Projects, so callers pass
+# a fine-grained PAT limited to cats-inc with Projects: read and write.
+
+on:
+  workflow_call:
+    secrets:
+      project_token:
+        required: true
+
+permissions: {}
+
+env:
+  # https://github.com/orgs/cats-inc/projects/1
+  PROJECT_ID: PVT_kwDOEBXds84Bky8i
+  STATUS_FIELD_ID: PVTSSF_lADOEBXds84Bky8izhjiOc8
+  BACKLOG_OPTION_ID: f75ad846
+
+jobs:
+  add-to-project:
+    if: github.event_name == 'issues' && github.event.action == 'opened'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Add issue as Backlog
+        env:
+          GH_TOKEN: ${{ secrets.project_token }}
+          ISSUE_ID: ${{ github.event.issue.node_id }}
+          ISSUE_REF: ${{ github.repository }}#${{ github.event.issue.number }}
+        run: |
+          item_id=$(gh api graphql \
+            -f query='mutation($project: ID!, $content: ID!) {
+              addProjectV2ItemById(input: {projectId: $project, contentId: $content}) { item { id } }
+            }' \
+            -f project="$PROJECT_ID" -f content="$ISSUE_ID" \
+            --jq '.data.addProjectV2ItemById.item.id')
+          test -n "$item_id"
+          gh api graphql \
+            -f query='mutation($project: ID!, $item: ID!, $field: ID!, $option: String!) {
+              updateProjectV2ItemFieldValue(input: {projectId: $project, itemId: $item, fieldId: $field, value: {singleSelectOptionId: $option}}) { projectV2Item { id } }
+            }' \
+            -f project="$PROJECT_ID" -f item="$item_id" -f field="$STATUS_FIELD_ID" -f option="$BACKLOG_OPTION_ID" \
+            --silent
+          echo "Added $ISSUE_REF to Cats Development with Status Backlog"
