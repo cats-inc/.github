@@ -8,9 +8,10 @@ Cats Inc is a project brand maintained by the individual developer [sammykenny2]
 
 > The monsters ran a power company. The cats run a compute one.
 
-An open-source **AI agent runtime** that collects capacity from every agent CLI, model
-API, and local model it can reach — and a **multi-agent collaboration platform** that
-puts that capacity to work.
+An open-source **AI agent runtime** that runs the agent CLIs, model APIs and local
+models you already have behind one interface — and a **multi-agent collaboration
+platform** that puts them to work. You install and sign in to each provider yourself,
+and each provider's terms decide what your plan allows.
 
 Most agent tooling is either a thin wrapper around one vendor's CLI or a chat window
 with a model key pasted into it. This is the other shape: execution lives in one place

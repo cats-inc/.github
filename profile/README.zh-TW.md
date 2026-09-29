@@ -6,8 +6,9 @@ Cats Inc 是個人開發者 [sammykenny2](https://github.com/sammykenny2) 維護
 
 > 怪獸開的是電力公司，醜貓開的是算力公司。
 
-一套開源的 **AI agent runtime**，把觸手可及的每一種 agent CLI、model API 與本機模型
-都收攏成可用的算力；以及一個把這些算力派上用場的**多 agent 協作平台**。
+一套開源的 **AI agent runtime**，把你已經安裝好的 agent CLI、model API 與本機模型
+放在同一個介面後面執行；以及一個把它們派上用場的**多 agent 協作平台**。各家 provider
+都由你自行安裝與登入，你的方案能怎麼用，以各家 provider 的條款為準。
 
 現在的 agent 工具多半只有兩種形狀：包住單一廠商 CLI 的薄殼，或是貼上一把 model key 的
 聊天視窗。這裡走的是第三種 —— 執行收在同一個地方並且共用，agent 是長期存在的參與者，
