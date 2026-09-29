@@ -2,6 +2,8 @@
 
 # Cats Inc
 
+Cats Inc 是個人開發者 [sammykenny2](https://github.com/sammykenny2) 維護的專案品牌，並非已登記公司；所有 Cats repositories 均採 MIT 授權。
+
 > 怪獸開的是電力公司，醜貓開的是算力公司。
 
 一套開源的 **AI agent runtime**，把觸手可及的每一種 agent CLI、model API 與本機模型
