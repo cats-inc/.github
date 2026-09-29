@@ -4,6 +4,8 @@
 
 # Cats Inc
 
+Cats Inc is a project brand maintained by the individual developer [sammykenny2](https://github.com/sammykenny2), not a registered company; all Cats repositories are MIT licensed.
+
 > The monsters ran a power company. The cats run a compute one.
 
 An open-source **AI agent runtime** that collects capacity from every agent CLI, model
