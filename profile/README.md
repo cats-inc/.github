@@ -22,8 +22,8 @@ today; see [Status](#status).
 ## How it is built
 
 Most of the code is written through AI-assisted development, with coding agents
-such as Claude Code, Codex and Gemini. I set the requirements, review the
-architecture and test the results. Each repository keeps a `ROADMAP.md`, a
+such as Codex, Claude Code and Antigravity. I set the requirements and review
+design choices and test results. Each repository keeps a `ROADMAP.md`, a
 `PROGRESS.md`, and its design decisions and plans under `docs/`, so the intent and
 the current state are recorded next to the code.
 
