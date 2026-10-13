@@ -17,8 +17,8 @@ Cats 是一個仍在開發中的個人專案，用來學習如何讓 AI agent �
 
 ## 開發方式
 
-大部分程式碼是以 AI 輔助開發的方式完成，搭配 Claude Code、Codex、Gemini 等 coding agent；
-由我負責訂定需求、審查架構與測試結果。每個 repo 都保留 `ROADMAP.md`、`PROGRESS.md`，
+大部分程式碼是以 AI 輔助開發的方式完成，搭配 Codex、Claude Code、Antigravity 等 coding agent；
+由我負責整理需求、檢視設計方向與測試結果。每個 repo 都保留 `ROADMAP.md`、`PROGRESS.md`，
 以及 `docs/` 下的設計決策與計畫，讓設計意圖與目前進度和程式碼放在一起。
 
 ---
