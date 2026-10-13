@@ -14,8 +14,8 @@ have behind one runtime, and to build a chat-style workspace on top of it where
 several agents can work together. You install and sign in to each provider
 yourself, and each provider's terms decide what your plan allows.
 
-This is an experiment, not a finished product. Only part of it works reliably
-today; see [Status](#status).
+This is an experiment, not a finished product. Some features have been implemented
+and are still being tested and validated; see [Status](#status).
 
 ---
 
